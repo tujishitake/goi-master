@@ -10,4 +10,10 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
+  
+  def forbid_login_user
+    if @user
+      redirect_to @user
+    end
+  end
 end

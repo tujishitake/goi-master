@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-xs-offset-3 col-xs-6">
+    <div class="list-group">
+      <% decks.each do |deck| %>
+        <li class="list-group-item">
+          <%= link_to deck.title, deck %>
+          <% if current_user == deck.user %>
+            <%= link_to '削除', deck, method: :delete, data: { confirm: '本当に削除しても良いですか？' }, class: 'btn btn-danger btn-xs text-right' %>
+          <% end %>
+        </li>
+      <% end %>
+    </div>
+  </div>
+</div>

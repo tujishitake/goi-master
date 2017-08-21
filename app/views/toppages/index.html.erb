@@ -1,12 +1,8 @@
-<% unless logged_in? %>
-  <div class="cover">
-    <div class="cover-inner">
-      <div class="cover-contents">
-        <h1 class="text-center">自分だけの単語帳を作って自分だけの語彙を手に入れよう！</h1>
-        <p class="text-center"><%= link_to 'Goin masterを始める', signup_path, class: "btn btn-success btn-lg" %></P>
-      </div>
+<div class="cover">
+  <div class="cover-inner">
+    <div class="cover-contents">
+      <h1 class="text-center">自分だけの単語帳を作って自分だけの語彙を手に入れよう！</h1>
+      <p class="text-center"><%= link_to 'Goi masterを始める', signup_path, class: "btn btn-success btn-lg" %></P>
     </div>
   </div>
-<% else %>
-  <% redirect_to user_path(current_user) %>
-<% end %>
+</div>
