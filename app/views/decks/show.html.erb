@@ -2,4 +2,10 @@
   <div class="col-xs-12">
     <h3 class="text-center">Deck名: <%= @deck.title %></h3>
   </div>
+  
+  
+  
+  <div class="text-center">
+    <%= link_to 'フラッシュカードを編集または削除する', edit_deck_path(@deck), class: 'btn btn-primary' %>
+  </div>
 </div>
