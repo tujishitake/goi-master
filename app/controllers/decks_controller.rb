@@ -5,17 +5,14 @@ class DecksController < ApplicationController
   
   def show
     @deck = Deck.find(params[:id])
-    @flashcard = @deck.flashcards.build   # form_for 用
     @flashcards = @deck.flashcards.order('created_at DESC')
   end
   
   def new
-    # @deck = current_user.decks.build
     @deck = Form::Deck.new
   end
   
   def create
-    # @deck = current_user.decks.build(deck_params)
     @deck = Form::Deck.new(deck_params)
     if @deck.save
       flash[:success] = "Deck #{@deck.name} を作成しました。"
@@ -28,13 +25,10 @@ class DecksController < ApplicationController
   end
   
   def edit
-    # @deck = current_user.decks.find(params[:id])
     @deck = Form::Deck.find(params[:id])
-    # @flashcard = @deck.flashcards.build   # form_for 用
   end
   
   def update
-    # @deck = current_user.decks.find(params[:id])
     @deck = Form::Deck.find(params[:id])
     
     if @deck.update_attributes(deck_params)
@@ -47,17 +41,14 @@ class DecksController < ApplicationController
   end
 
   def destroy
-    # @deck.destroy
     Deck.find(params[:id]).destroy
     flash[:success] = "Deck #{@deck.name} を削除しました。"
-    # redirect_back(fallback_location: root_path)
-    redirect_to decks_url
+    redirect_to current_user
   end
   
   private 
   
   def deck_params
-    # params.require(:deck).permit(:name, :text1_language, :text2_language)
     params
       .require(:form_deck)
       .permit(

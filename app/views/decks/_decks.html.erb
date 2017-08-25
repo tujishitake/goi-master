@@ -2,14 +2,20 @@
   <div class="col-xs-offset-3 col-xs-6">
     <div class="list-group">
       <% decks.each do |deck| %>
-        <li class="list-group-item">
-          <%= link_to deck.name, deck %>
-          <% if current_user == deck.user %>
-            <div class="text-right">
-              <%= link_to '削除', deck, method: :delete, data: { confirm: '本当に削除しても良いですか？' }, class: 'btn btn-danger btn-xs' %>
-            </div>
-          <% end %>
-        </li>
+        <table class="table">
+          <tr>
+            <td>
+              <%= link_to deck.name, deck %>
+            </td>
+            <td>
+              <% if current_user == deck.user %>
+                <div class="text-right">
+                  <%= link_to '削除', deck, method: :delete, data: { confirm: '本当に削除しても良いですか？' }, class: 'btn btn-danger btn-xs' %>
+                </div>
+              <% end %>
+            </td>
+          </tr>
+        </table>
       <% end %>
     </div>
   </div>

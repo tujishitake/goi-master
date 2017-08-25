@@ -3,8 +3,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @deck = current_user.decks.build
-    @decks = current_user.decks.order('created_at DESC')
+    @decks = @user.decks.order('created_at DESC')
   end
 
   def new
