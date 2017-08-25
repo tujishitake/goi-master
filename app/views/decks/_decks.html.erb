@@ -3,7 +3,7 @@
     <div class="list-group">
       <% decks.each do |deck| %>
         <li class="list-group-item">
-          <%= link_to deck.title, deck %>
+          <%= link_to deck.name, deck %>
           <% if current_user == deck.user %>
             <div class="text-right">
               <%= link_to '削除', deck, method: :delete, data: { confirm: '本当に削除しても良いですか？' }, class: 'btn btn-danger btn-xs' %>

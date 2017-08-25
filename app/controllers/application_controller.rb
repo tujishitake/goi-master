@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
   end
   
   def forbid_login_user
-    if @user
-      redirect_to @user
+    if logged_in?
+      redirect_to current_user
     end
   end
 end
