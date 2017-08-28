@@ -1,0 +1,13 @@
+<% if flashcard.bookmark  %>
+  <%= form_for(flashcard) do |f| %>
+    <%= f.hidden_field :id, value: flashcard.id %>
+    <%= f.hidden_field :bookmark, value: false %>
+    <%= button_tag '<i class="fa fa-star"></i>'.html_safe, type: 'submit'  %>
+  <% end %>
+<% else %>
+  <%= form_for(flashcard) do |f| %>
+    <%= f.hidden_field :id, value: flashcard.id %>
+    <%= f.hidden_field :bookmark, value: true %>
+    <%= button_tag '<i class="fa fa-star-o"></i>'.html_safe, type: 'submit'  %>
+  <% end %>
+<% end %>

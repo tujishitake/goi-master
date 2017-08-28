@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170823092503) do
+ActiveRecord::Schema.define(version: 20170827131719) do
 
   create_table "decks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -25,9 +25,10 @@ ActiveRecord::Schema.define(version: 20170823092503) do
   create_table "flashcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text1"
     t.string   "text2"
-    t.integer  "deck_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "deck_id",                    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "bookmark",   default: false, null: false
     t.index ["deck_id"], name: "index_flashcards_on_deck_id", using: :btree
   end
 

@@ -2,26 +2,32 @@ class FlashcardsController < ApplicationController
   before_action :require_user_logged_in
   
   def create
-  #   deck = current_user.decks.find(params[:id])
-  #   @flashcard = deck.flashcards.build(flashcard_params)
-  #   if @flashcard.save
-  #     flash[:success] = 'フラッシュカードを作成しました。'
-  #     redirect_to @deck
-  #   else
-  #     flash.now[:danger] = 'フラッシュカードの作成に失敗しました。'
-  #     redner edit_deck_path
-  #   end
-  # end
+  end
 
   def update
+    @flashcard = Flashcard.find(params[:id])
+    if @flashcard.update(flashcard_params)
+      if @flashcard.bookmark
+        flash[:success] = 'ブックマークに追加しました'
+        redirect_back(fallback_location: root_path) 
+      else
+        flash[:success] = 'ブックマークを削除しました'
+        redirect_back(fallback_location: root_path) 
+      end
+    end
   end
 
   def destroy
   end
   
+  def bookmarks
+    # @bookmarks = current_user.flashcards.where(bookmark: true)
+    @flashcards = current_user.flashcards.where(bookmark: true)
+  end
+  
   private
   
   def flashcard_params
-    params.require(:flashcard).permit(:text1, :text2)
+    params.require(:flashcard).permit(:bookmark)
   end
 end

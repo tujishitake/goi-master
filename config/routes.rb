@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   
   get 'signup', to: 'users#new'
+  
+  get 'flashcards/bookmarks', to: 'flashcards#bookmarks'
   resources :users, only: [:show, :new, :create]
   
   resources :decks, only: [:show, :new, :create, :edit, :update, :destroy]
