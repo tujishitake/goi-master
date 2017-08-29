@@ -1,3 +1,7 @@
+<% content_for(:title) do %>
+  Deck | Goi Master
+<% end %>
+
 <div class="row">
   <div class="col-xs-12">
     <h3 class="text-center">Deck名: <%= @deck.name %></h3>
@@ -6,7 +10,7 @@
   <%= render 'flashcards/flashcards', flashcards: @flashcards %>
   
   <div class="text-center">
-    <%= link_to 'Deckを編集または削除する', edit_deck_path(@deck), class: 'btn btn-primary' %>
+    <%= link_to 'Deckを編集する', edit_deck_path(@deck), class: 'btn btn-primary' %>
     <%= link_to '戻る', current_user, class: 'btn btn-primary' %>
   </div>
 </div>
