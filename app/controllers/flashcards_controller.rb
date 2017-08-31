@@ -21,7 +21,6 @@ class FlashcardsController < ApplicationController
   end
   
   def bookmarks
-    # @bookmarks = current_user.flashcards.where(bookmark: true)
     @flashcards = current_user.flashcards.where(bookmark: true)
   end
   

@@ -14,11 +14,3 @@
  *= require_self
  *= require font-awesome
  */
-
-@charset "utf-8";
-
-button {
-  border: 0;
-  background-color: #fff
-}
-

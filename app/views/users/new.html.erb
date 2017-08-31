@@ -10,7 +10,7 @@
         <%= form_for(@user) do |f| %>
           <%= render 'layouts/error_messages', model: f.object %>
           <div class="form_group">
-            <%= f.label :name, 'お名前' %>
+            <%= f.label :name, 'ユーザー名' %>
             <%= f.text_field :name, class: 'form-control' %>
           </div>
           

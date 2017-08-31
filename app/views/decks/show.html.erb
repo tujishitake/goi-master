@@ -7,7 +7,7 @@
     <h3 class="text-center">Deck名: <%= @deck.name %></h3>
   </div>
   
-  <%= render 'flashcards/flashcards', flashcards: @flashcards %>
+  <%= render 'flashcards/flashcards', flashcards: @flashcards, deck: @deck %>
   
   <div class="text-center">
     <%= link_to 'Deckを編集する', edit_deck_path(@deck), class: 'btn btn-primary' %>

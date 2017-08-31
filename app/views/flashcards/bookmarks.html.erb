@@ -6,12 +6,13 @@
   <% @flashcards.each do |flashcard| %>
     
     <table class="table table-bordered">
+      <h3><%= flashcard.deck.name %> <span style="font-size:0.7em"> ( text1言語 : <%= flashcard.deck.text1_language %>、text2言語 : <%= flashcard.deck.text2_language %> )</span></h3>
       <tr>
         <td class="col-xs-5">
-          <%= flashcard.text1 %>
+          <span class="text" data-lang="<%= flashcard.deck.text1_language %>" data-text="<%= flashcard.text1 %>"><%= flashcard.text1 %></span>
         </td>
         <td class="col-xs-5">
-          <%= flashcard.text2 %>
+          <span class="text" data-lang="<%= flashcard.deck.text2_language %>" data-text="<%= flashcard.text2 %>"><%= flashcard.text2 %></span>
         </td>
         <td class="col-xs-1">
           <%= render 'flashcards/bookmark_button', flashcard: flashcard %>

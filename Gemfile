@@ -55,3 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'cocoon'
 
 gem 'font-awesome-rails'
+
+gem 'jquery-turbolinks'

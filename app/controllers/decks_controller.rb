@@ -65,7 +65,12 @@ class DecksController < ApplicationController
   end
   
   def select_data
-    @select_data = [["日本語", "Japanese"], ["英語", "English"], ["フランス語", "French"], ["スペイン語", "Spanish"]]
+    @select_data = [
+      ["日本語", "ja-JP"], 
+      ["英語", "en-US"], 
+      ["フランス語", "fr-FR"], 
+      ["スペイン語", "es-ES"]
+    ]
   end
   
 end
