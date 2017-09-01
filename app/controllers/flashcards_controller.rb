@@ -21,7 +21,7 @@ class FlashcardsController < ApplicationController
   end
   
   def bookmarks
-    @flashcards = current_user.flashcards.where(bookmark: true)
+    @flashcards = current_user.flashcards.where(bookmark: true).includes(:deck)
   end
   
   private
