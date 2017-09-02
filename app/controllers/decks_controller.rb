@@ -5,7 +5,7 @@ class DecksController < ApplicationController
   
   def show
     @deck = Deck.find(params[:id])
-    @flashcards = @deck.flashcards.order('created_at DESC')
+    @flashcards = @deck.flashcards.order('created_at ASC')
   end
   
   def new
@@ -65,11 +65,11 @@ class DecksController < ApplicationController
   end
   
   def select_data
-    @select_data = [
-      ["日本語", "ja-JP"], 
-      ["英語", "en-US"], 
-      ["フランス語", "fr-FR"], 
-      ["スペイン語", "es-ES"]
+    @select_data = [ :English, :Japanese, :French, :Spanish
+      # ["英語", :English], 
+      # ["日本語", :Japanese], 
+      # ["フランス語", :French], 
+      # ["スペイン語", :Spanish]
     ]
   end
   

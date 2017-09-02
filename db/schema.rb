@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170827131719) do
+ActiveRecord::Schema.define(version: 20170901175140) do
 
   create_table "decks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.string   "text1_language"
-    t.string   "text2_language"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "text1_language", default: 0, null: false
+    t.integer  "text2_language", default: 1, null: false
     t.index ["user_id"], name: "index_decks_on_user_id", using: :btree
   end
 
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170827131719) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.boolean  "bookmark",   default: false, null: false
+    t.string   "image"
     t.index ["deck_id"], name: "index_flashcards_on_deck_id", using: :btree
   end
 

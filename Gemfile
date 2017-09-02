@@ -57,3 +57,7 @@ gem 'cocoon'
 gem 'font-awesome-rails'
 
 gem 'jquery-turbolinks'
+
+gem 'flickraw'
+
+gem 'dotenv-rails'

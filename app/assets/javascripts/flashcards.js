@@ -7,6 +7,7 @@ $(document).on('turbolinks:load', function() {
     uttr.lang = lang;
     
     speechSynthesis.speak(uttr);
+    console.log(uttr.lang);
   }
   $(".text").on("click", speak);
 });
