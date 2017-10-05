@@ -46,6 +46,29 @@ class DecksController < ApplicationController
     redirect_to current_user
   end
   
+  def copy
+    @deck = Deck.find(params[:id])
+#    new_deck = @deck.clone
+    new_deck = Deck.new
+    new_deck.name = @deck.name
+    new_deck.text1_language = @deck.text1_language
+    new_deck.text2_language = @deck.text2_language
+    new_deck.user_id = current_user.id
+    new_deck.save
+    
+    @deck.flashcards.each do |element|
+       new_flash = new_deck.flashcards.build
+       new_flash.text1 = element.text1
+       new_flash.text2 = element.text2
+       new_flash.image = element.image
+       new_flash.deck_id = new_deck.id
+       new_flash.save
+    end
+    
+    flash[:success] = "Deck #{@deck.name} をコピーしました"
+    redirect_to current_user
+  end
+  
   private 
   
   def deck_params

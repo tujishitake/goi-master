@@ -14,9 +14,11 @@
         <td class="col-xs-3">
           <img src="<%= flashcard.photo %>" width= 150, height= 150>
         </td>
+        <% if current_user == deck.user %>
         <td class="col-xs-1">
           <%= render 'flashcards/bookmark_button', flashcard: flashcard %>
         </td>
+        <% end %>
       </tr>
     </table>
   <% end %>

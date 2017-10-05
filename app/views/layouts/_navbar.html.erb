@@ -14,6 +14,10 @@
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
             <li>
+              <%= link_to "ユーザー一覧", users_path %>
+            </li>
+          
+            <li>
               <%= link_to "ブックマーク一覧", flashcards_bookmarks_path %>  
             </li>
             

@@ -9,9 +9,16 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   
   get 'flashcards/bookmarks', to: 'flashcards#bookmarks'
-  resources :users, only: [:show, :new, :create]
   
-  resources :decks, only: [:show, :new, :create, :edit, :update, :destroy]
+ #  post 'copy', to: 'decks#copy'
+
+  resources :users, only: [:show, :new, :create, :index]
+  
+  resources :decks, only: [:show, :new, :create, :edit, :update, :destroy] do
+       member do
+          post 'copy', to: 'decks#copy'
+      end
+  end
   
   resources :flashcards, only: [:create, :update, :destroy]
 end

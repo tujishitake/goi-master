@@ -9,8 +9,17 @@
   
   <%= render 'flashcards/flashcards', flashcards: @flashcards, deck: @deck %>
   
-  <div class="text-center">
-    <%= link_to 'Deckを編集する', edit_deck_path(@deck), class: 'btn btn-primary' %>
-    <%= link_to '戻る', current_user, class: 'btn btn-primary' %>
-  </div>
+  <% if current_user == @deck.user %>
+    <div class="text-center">
+      <%= link_to 'Deckを編集する', edit_deck_path(@deck), class: 'btn btn-primary' %>
+      <%= link_to '戻る', current_user, class: 'btn btn-primary' %>
+    </div>
+  <% else %>
+    <div class="text-center">
+      <%= form_for(@deck, url: copy_deck_path(@deck), method: :post) do |f|  %>
+        <%= f.submit 'このDeckをコピーする', class: 'btn btn-success', style: "margin-bottom: 10px;" %>
+      <% end %>
+      <%= link_to '戻る', user_path(@deck.user), class: 'btn btn-primary' %>
+    </div>
+  <% end %>
 </div>
