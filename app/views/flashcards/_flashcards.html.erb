@@ -3,13 +3,16 @@
     
     <table class="table table-bordered">
       <tr>
-        <td class="col-xs-5">
+        <td class="col-xs-4">
           <span class="text" data-lang="<%= deck.text1_language_for_uttr %>" data-text="<%= flashcard.text1 %>"><%= flashcard.text1 %></span>
           
         </td>
-        <td class="col-xs-5" id="text2">
+        <td class="col-xs-4" id="text2">
           <span class="text" data-lang="<%= deck.text2_language_for_uttr %>" data-text="<%= flashcard.text2 %>"><%= flashcard.text2 %></span>
           
+        </td>
+        <td class="col-xs-3">
+          <img src="<%= flashcard.photo %>" width= 150, height= 150>
         </td>
         <td class="col-xs-1">
           <%= render 'flashcards/bookmark_button', flashcard: flashcard %>
