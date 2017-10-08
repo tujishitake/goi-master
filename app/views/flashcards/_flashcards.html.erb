@@ -1,35 +1,41 @@
-<div class="row">
-  <% flashcards.each do |flashcard| %>
-    
-    <table class="table table-bordered">
-      <tr>
-        <td class="col-xs-4">
-          <span class="text" data-lang="<%= deck.text1_language_for_uttr %>" data-text="<%= flashcard.text1 %>"><%= flashcard.text1 %></span>
-          
-        </td>
-        <td class="col-xs-4" id="text2">
-          <span class="text" data-lang="<%= deck.text2_language_for_uttr %>" data-text="<%= flashcard.text2 %>"><%= flashcard.text2 %></span>
-          
-        </td>
-        <td class="col-xs-3">
-          <% if current_user == deck.user %>
-            <% if flashcard.image %>
-              <%= image_tag(flashcard.image) %>
-              <%= link_to '削除', delete_image_flashcard_path(flashcard), method: :delete, data: { confirm: '本当に削除しても良いですか？' }, class: 'btn btn-danger btn-xs' %>
+<div class="flashcards">
+  <div class="">
+    <% flashcards.each do |flashcard| %>
+      
+      <table class="table table-bordered">
+        <tr>
+          <!--<td class="col-sm-offset-1 col-sm-3 text1">-->
+          <td class="col-xs-4 text1">
+            <span class="text" data-lang="<%= deck.text1_language_for_uttr %>" data-text="<%= flashcard.text1 %>"><%= flashcard.text1 %></span>
+            
+          </td>
+          <!--<td class="col-sm-3 text2">-->
+          <td class="col-xs-4 text2">
+            <span class="text" data-lang="<%= deck.text2_language_for_uttr %>" data-text="<%= flashcard.text2 %>"><%= flashcard.text2 %></span>
+            
+          </td>
+          <!--<td class="col-sm-3 image">-->
+          <td class="col-xs-3 image">
+            <% if current_user == deck.user %>
+              <% if flashcard.image %>
+                <%= image_tag(flashcard.image) %>
+                <%= link_to '削除', delete_image_flashcard_path(flashcard), method: :delete, data: { confirm: '本当に削除しても良いですか？' }, class: 'btn btn-danger btn-xs' %>
+              <% else %>
+                <!--<img src="<%#= flashcard.photo %>" width= 150, height= 150>-->
+                <%= link_to '画像を取得する', get_image_flashcard_path(flashcard), method: :post, class: 'btn btn-success' %>
+              <% end %>
             <% else %>
-              <!--<img src="<%#= flashcard.photo %>" width= 150, height= 150>-->
-              <%= link_to '画像を取得する', get_image_flashcard_path(flashcard), method: :post, class: 'btn btn-success' %>
+              <%= flashcard.image %>
             <% end %>
-          <% else %>
-            <%= flashcard.image %>
+          </td>
+          <% if current_user == deck.user %>
+          <!--<td class="col-sm-1 bookmark">-->
+          <td class="col-xs-1 bookmark">
+            <%= render 'flashcards/bookmark_button', flashcard: flashcard %>
+          </td>
           <% end %>
-        </td>
-        <% if current_user == deck.user %>
-        <td class="col-xs-1">
-          <%= render 'flashcards/bookmark_button', flashcard: flashcard %>
-        </td>
-        <% end %>
-      </tr>
-    </table>
-  <% end %>
+        </tr>
+      </table>
+    <% end %>
+  </div>
 </div>

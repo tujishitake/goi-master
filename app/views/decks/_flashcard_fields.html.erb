@@ -1,16 +1,17 @@
 <tr class="nested-fields">
   
-  <td id="text1">
-    <%= f.text_field :text1, class: 'form-control text1' %>
+  <td id="text1" class="col-sm-5 text1">
+    <%= f.text_field :text1, class: 'form-control' %>
   </td>
-  <td>
-    <%= f.text_field :text2, class: 'form-control text2' %>
+  <td class="col-sm-5 text2">
+    <%= f.text_field :text2, class: 'form-control' %>
   </td>
   <td>
     <%#= f.hidden_field :image, class: 'form-control image' %>
     <%#= link_to '取得', "", class: 'btn btn-success' %>
   </td>
-  <td>
+  <td class="col-sm-2">
     <%= link_to_remove_association '削除', f, class: 'btn btn-danger' %>
   </td>
+  
 </tr>

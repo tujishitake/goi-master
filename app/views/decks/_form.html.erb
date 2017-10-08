@@ -35,7 +35,7 @@
         <tr>
           <th>Text1</th>
           <th>Text2</th>
-          <th>画像</th>
+          <th></th>
           <th></th>
         </tr>
       </thead>
@@ -49,12 +49,12 @@
       </tbody>
     </table>
     
-    <%= f.submit '作成', class: 'btn btn-primary' %>
+    <%= f.submit '作成', class: 'btn btn-primary form-btn' %>
   
     <% if @deck.persisted? %>
-      <%= link_to '戻る', deck_path(@deck), class: 'btn btn-primary' %>
+      <%= link_to '戻る', deck_path(@deck), class: 'btn btn-primary form-btn' %>
     <% else %>
-      <%= link_to '戻る', root_path, class: 'btn btn-primary' %>
+      <%= link_to '戻る', root_path, class: 'btn btn-primary form-btn' %>
     <% end %>
   </div>  
 <% end %>

@@ -50,6 +50,10 @@ class FlashcardsController < ApplicationController
   
   def delete_image
     @flashcard = Flashcard.find(params[:id])
+    file_name = File.basename(@flashcard.image)
+    dir_name = Rails.root.join('public', "img")
+    file_path = dir_name + file_name
+    File.delete file_path
     @flashcard.image = nil
     @flashcard.save
     redirect_back(fallback_location: root_path)
