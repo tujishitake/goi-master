@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: goi-master_production
   username: goi-master
   password: <%= ENV['GOI-MASTER_DATABASE_PASSWORD'] %>

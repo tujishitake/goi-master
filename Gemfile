@@ -61,3 +61,7 @@ gem 'jquery-turbolinks'
 gem 'flickraw'
 
 gem 'dotenv-rails'
+
+group :production do
+  gem 'pg'
+end
