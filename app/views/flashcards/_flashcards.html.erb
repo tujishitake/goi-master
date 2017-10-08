@@ -12,7 +12,17 @@
           
         </td>
         <td class="col-xs-3">
-          <img src="<%= flashcard.photo %>" width= 150, height= 150>
+          <% if current_user == deck.user %>
+            <% if flashcard.image %>
+              <%= image_tag(flashcard.image) %>
+              <%= link_to '削除', delete_image_flashcard_path(flashcard), method: :delete, data: { confirm: '本当に削除しても良いですか？' }, class: 'btn btn-danger btn-xs' %>
+            <% else %>
+              <!--<img src="<%#= flashcard.photo %>" width= 150, height= 150>-->
+              <%= link_to '画像を取得する', get_image_flashcard_path(flashcard), method: :post, class: 'btn btn-success' %>
+            <% end %>
+          <% else %>
+            <%= flashcard.image %>
+          <% end %>
         </td>
         <% if current_user == deck.user %>
         <td class="col-xs-1">

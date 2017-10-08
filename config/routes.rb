@@ -20,5 +20,10 @@ Rails.application.routes.draw do
       end
   end
   
-  resources :flashcards, only: [:create, :update, :destroy]
+  resources :flashcards, only: [:create, :update, :destroy] do
+      member do
+        post 'get_image', to: 'flashcards#get_image'
+        delete 'delete_image', to: 'flashcards#delete_image'
+      end
+  end
 end

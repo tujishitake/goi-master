@@ -3,16 +3,23 @@
 <% end %>
 
 <div class="row">
+  <div class="col-xs-12", style="padding-bottom: 50px;">
+    <h3 class="text-center">ブックマーク一覧</h3>
+  </div>
+  
   <% @flashcards.each do |flashcard| %>
     
     <table class="table table-bordered">
       <h3><%= flashcard.deck.name %> <span style="font-size:0.6em; font-weight: normal;"> ( text1言語 : <%= flashcard.deck.text1_language %>、text2言語 : <%= flashcard.deck.text2_language %> )</span></h3>
       <tr>
-        <td class="col-xs-5">
+        <td class="col-xs-4">
           <span class="text" data-lang="<%= flashcard.deck.text1_language_for_uttr %>" data-text="<%= flashcard.text1 %>"><%= flashcard.text1 %></span>
         </td>
-        <td class="col-xs-5">
+        <td class="col-xs-4">
           <span class="text" data-lang="<%= flashcard.deck.text2_language_for_uttr %>" data-text="<%= flashcard.text2 %>"><%= flashcard.text2 %></span>
+        </td>
+        <td class="col-xs-3">
+          <img src="<%= flashcard.photo %>" width= 150, height= 150>
         </td>
         <td class="col-xs-1">
           <%= render 'flashcards/bookmark_button', flashcard: flashcard %>

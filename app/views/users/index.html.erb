@@ -1,27 +1,20 @@
+<% content_for(:title) do %>
+  ユーザー一覧 | Goi Master
+<% end %>
+
 <div class="row">
-  <% @users.each do |user| %>
+  <div class="col-xs-12", style="padding-bottom: 50px;">
+    <h3 class="text-center">ユーザー一覧</h3>
+  </div>
   
-  <% if false %>
-    <table class="table table-bordered">
-        <td class="col-xs-offset-5 text-center">
-          <span class="gravatar">
-            <img src="<%= gravatar_url(user, size: 20) %>" alt="" class="img-circle">
-            <%= link_to user.name, user %>
-          </span>
-        </td>
-      </tr>
-    </table>
-  <% end %>
+  <% @users.each do |user| %>
+
+    <div class="col-sm-3 text-center" style="border: 1px solid #ccc; height: 100px; line-height: 100px;">
+      <span class="gravatar">
+        <img src="<%= gravatar_url(user, size: 50) %>" alt="" class="img-circle">
+        <%= link_to user.name, user, style: "font-size: 20px" %>
+      </span>
+    </div>
     
-    <!--<table class="table table-bordered">-->
-        <!--<td class="col-xs-offset-5 text-center">-->
-        <div class="col-xs-3 text-center" style="border: 1px solid #ccc; height: 50px; line-height: 50px;">
-          <span class="gravatar">
-            <img src="<%= gravatar_url(user, size: 20) %>" alt="" class="img-circle">
-            <%= link_to user.name, user %>
-          </span>
-        </div>
-      <!--</tr>-->
-    <!--</table>-->
   <% end %>
 </div>

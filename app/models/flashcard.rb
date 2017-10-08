@@ -12,11 +12,11 @@ class Flashcard < ApplicationRecord
   
   def getFlickrImageURL(photo, size) 
     # photoオブジェクトから画像のURLを作成して返す
-    url = "https://farm" + photo.farm.to_s + ".staticflickr.com/" + photo.server.to_s + "/" + photo.id.to_s + "_" + photo.secret.to_s;
+    url = "https://farm" + photo.farm.to_s + ".staticflickr.com/" + photo.server.to_s + "/" + photo.id.to_s + "_" + photo.secret.to_s
     if (size)   # サイズ指定ありの場合
-      url += "_" + size.to_s;
+      url += "_" + size.to_s
     end
-    url += ".jpg";
-    return url;
+    url += ".jpg"
+    return url
   end
 end

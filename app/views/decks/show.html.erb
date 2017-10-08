@@ -3,7 +3,7 @@
 <% end %>
 
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-xs-12", style="padding-bottom: 50px;">
     <h3 class="text-center">Deck名: <%= @deck.name %></h3>
   </div>
   
@@ -16,9 +16,7 @@
     </div>
   <% else %>
     <div class="text-center">
-      <%= form_for(@deck, url: copy_deck_path(@deck), method: :post) do |f|  %>
-        <%= f.submit 'このDeckをコピーする', class: 'btn btn-success', style: "margin-bottom: 10px;" %>
-      <% end %>
+      <%= link_to 'このDeckをコピーする', copy_deck_path(@deck), method: :post, class: 'btn btn-success' %>
       <%= link_to '戻る', user_path(@deck.user), class: 'btn btn-primary' %>
     </div>
   <% end %>

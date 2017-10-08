@@ -17,13 +17,17 @@
   <body>
     <%= render 'layouts/navbar' %>
     
+    <%= yield :cover %>
+    
+    
     <div class="container">
-      
-      <%= render 'layouts/flash_messages' %>
-      
-      <%= yield %>
+        
+        <%= render 'layouts/flash_messages' %>
+        
+        <%= yield %>
+        
     </div>
     
-    <%= render 'layouts/footer' %>
+    <footer><%= render 'layouts/footer' %></footer>
   </body>
 </html>

@@ -1,5 +1,7 @@
 class FlashcardsController < ApplicationController
   before_action :require_user_logged_in
+  require 'open-uri'
+  # require "FileUtils"
   
   def create
   end
@@ -22,6 +24,35 @@ class FlashcardsController < ApplicationController
   
   def bookmarks
     @flashcards = current_user.flashcards.where(bookmark: true).order(created_at: :DESC).includes(:deck)
+  end
+  
+  def get_image
+    @flashcard = Flashcard.find(params[:id])
+    image_url = @flashcard.photo
+    
+    # ready filepath
+    file_name = File.basename(image_url)
+    dir_name = Rails.root.join('public', "img")
+    file_path = dir_name + file_name
+    
+    # write image data
+    open(file_path, 'wb') do |output|
+      open(image_url) do |data|
+        output.write(data.read)
+      end
+    end
+    
+    @flashcard.image = image_url
+    # p  "#{@flashcard} ＠＠＠出力テスト＠＠＠"
+    @flashcard.save
+    redirect_back(fallback_location: root_path)
+  end
+  
+  def delete_image
+    @flashcard = Flashcard.find(params[:id])
+    @flashcard.image = nil
+    @flashcard.save
+    redirect_back(fallback_location: root_path)
   end
   
   private
