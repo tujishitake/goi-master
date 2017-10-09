@@ -25,7 +25,7 @@
                 <%= link_to '画像を取得する', get_image_flashcard_path(flashcard), method: :post, class: 'btn btn-success' %>
               <% end %>
             <% else %>
-              <%= flashcard.image %>
+              <%= image_tag(flashcard.image) %>
             <% end %>
           </td>
           <% if current_user == deck.user %>
