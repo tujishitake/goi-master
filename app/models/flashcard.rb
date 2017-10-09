@@ -1,6 +1,10 @@
 class Flashcard < ApplicationRecord
   belongs_to :deck, inverse_of: :flashcards
   
+  FlickRaw.api_key = ENV['FLICKRAW_API_KEY']
+  FlickRaw.shared_secret = ENV['FLICKRAW_SHARED_SECRET']
+
+  
   # validates :deck_id, presence: true 
   validates :text1, presence: true, length: { maximum: 255 }
   validates :text2, presence: true, length: { maximum: 255 }
