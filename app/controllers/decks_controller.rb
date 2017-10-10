@@ -88,7 +88,7 @@ class DecksController < ApplicationController
   end
   
   def select_data
-    @select_data = [ :English, :Japanese, :French, :Spanish
+    @select_data = [ :English, :Japanese, :French, :Spanish, :Portuguese, :Italian, :German, :Chinese, :Korean,
       # ["英語", :English], 
       # ["日本語", :Japanese], 
       # ["フランス語", :French], 
