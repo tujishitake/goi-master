@@ -4,7 +4,7 @@ class DecksController < ApplicationController
   before_action :select_data, only: [:new, :edit]
   
   def index
-    @decks = Deck.where.not(user_id: current_user.id).order('created_at DESC')
+    @decks = Deck.where.not(user_id: current_user.id).order('created_at DESC').page(params[:page]).per(10)
   end
   
   def show
