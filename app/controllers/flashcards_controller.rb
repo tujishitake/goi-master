@@ -23,7 +23,8 @@ class FlashcardsController < ApplicationController
   end
   
   def bookmarks
-    @flashcards = current_user.flashcards.where(bookmark: true).order(created_at: :DESC).includes(:deck)
+    # @flashcards = current_user.flashcards.where(bookmark: true).order(created_at: :DESC).includes(:deck)
+    @decks = current_user.decks.joins(:flashcards).where("flashcards.bookmark = true").distinct
   end
   
   def get_image

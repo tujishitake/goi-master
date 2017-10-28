@@ -3,6 +3,10 @@ class DecksController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :select_data, only: [:new, :edit]
   
+  def index
+    @decks = Deck.where.not(user_id: current_user.id).order('created_at DESC')
+  end
+  
   def show
     @deck = Deck.find(params[:id])
     @flashcards = @deck.flashcards.order('created_at ASC')

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :new, :create, :index]
   
-  resources :decks, only: [:show, :new, :create, :edit, :update, :destroy] do
+  resources :decks, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
        member do
           post 'copy', to: 'decks#copy'
       end

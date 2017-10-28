@@ -4,6 +4,14 @@
 
 <div class="deck-show">
   <div class="">
+    
+    <div class="icon text-center">
+      <img src="<%= gravatar_url(@deck.user, size: 100) %>" alt="" class="img-circle">
+    </div>
+    <div class="name text-center", style="padding-bottom: 50px;">
+      <h1><%= link_to @deck.user.name, @deck.user %></h1>
+    </div>
+    
     <div class="col-xs-12 deck-title">
       <h3 class="text-center">Deck名: <%= @deck.name %></h3>
     </div>
@@ -13,12 +21,13 @@
     <% if current_user == @deck.user %>
       <div class="text-center deck-update">
         <%= link_to 'Deckを編集する', edit_deck_path(@deck), class: 'btn btn-primary' %>
-        <%= link_to '戻る', current_user, class: 'btn btn-primary' %>
+        <%#= link_to '戻る', current_user, class: 'btn btn-primary' %>
+        <%= link_to 'Deckを削除する', @deck, method: :delete, data: { confirm: '本当に削除しても良いですか？' }, class: 'btn btn-danger' %>
       </div>
     <% else %>
       <div class="text-center deck-update">
         <%= link_to 'このDeckをコピーする', copy_deck_path(@deck), method: :post, class: 'btn btn-success' %>
-        <%= link_to '戻る', user_path(@deck.user), class: 'btn btn-primary' %>
+        <%#= link_to '戻る', user_path(@deck.user), class: 'btn btn-primary' %>
       </div>
     <% end %>
   </div>

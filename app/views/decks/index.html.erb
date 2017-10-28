@@ -1,0 +1,8 @@
+<% content_for(:title) do %>
+  Deckリスト | Goi Master
+<% end %>
+
+<div class="decks">
+  <h3 class="text-center">Deckリスト</h3>
+  <%= render 'decks/decks', decks: @decks %>
+</div>

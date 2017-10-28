@@ -51,10 +51,14 @@
     
     <%= f.submit '作成', class: 'btn btn-primary form-btn' %>
   
-    <% if @deck.persisted? %>
-      <%= link_to '戻る', deck_path(@deck), class: 'btn btn-primary form-btn' %>
-    <% else %>
-      <%= link_to '戻る', root_path, class: 'btn btn-primary form-btn' %>
+    <!--戻るボタン削除-->
+    <% if false %>
+      <% if @deck.persisted? %>
+        <%= link_to '戻る', deck_path(@deck), class: 'btn btn-primary form-btn' %>
+      <% else %>
+        <%= link_to '戻る', root_path, class: 'btn btn-primary form-btn' %>
+      <% end %>
     <% end %>
+    
   </div>  
 <% end %>

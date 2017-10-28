@@ -37,6 +37,46 @@ footer {
 #title br {
   display: none;
 }
+.under {
+  background: linear-gradient(transparent 70%, skyblue 70%);
+}
+.toppage {
+  width: 100%;
+  margin: 0 auto;
+}
+.toppage ul {
+  float: left;
+  /*margin: 50px 0px 50px 100px;*/
+  margin: 50px 0px 50px 0px;
+  padding: 0 0 0 3%;
+  font-size: 1.5em;
+  list-style: none;
+  /*width: 420px;*/
+  width: 46%;
+}
+.toppage img {
+  width: 20%;
+  height: 20%;
+  /*margin: 0 60px;*/
+}
+.toppage .image1 {
+  float: left;
+  margin-right: 0px;
+  margin-left: 60px;
+}
+.toppage .image2 {
+  float: right;
+  margin-left: 0;
+  margin-right: 60px;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.toppage .main {
+  float: left;
+}
 
 /*login, signup*/
 .login, .signup {
@@ -87,6 +127,9 @@ button {
   font-size:0.6em; 
   font-weight: normal;
 }
+.bookmark br {
+  display: none;
+}
 
 @media (max-width: 991px) {
   /*toppage*/
@@ -96,8 +139,22 @@ button {
   #title br {
     display: block;
   }
-  
-
+  .toppage .main {
+   float: none; 
+  }
+  .toppage ul {
+    /*font-size: 18px;*/
+    /*margin-left: 170px;*/
+    margin-top: 0;
+  }
+  .toppage .image1 {
+    margin-right: 0px;
+    margin-left: 40px;
+  }
+  .toppage .image2 {
+    margin-left: 0;
+    margin-right: 40px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -111,6 +168,19 @@ button {
   #title br {
     display: block;
   }
+  .toppage ul {
+    font-size: 12px;
+    margin-left: 10%;
+    width: auto;
+  }
+  .toppage img {
+    display: none;
+  }
+  .toppage .btn {
+    width: 70%;
+  }
+  
+  
   /*login, signup*/
   .login, .signup {
     height: 80vh;
@@ -165,6 +235,11 @@ button {
     width: 49%;
   }
   .nested-fields .text1, .nested-fields .text2, .nested-fields .btn {
+    display: block;
+  }
+  
+  /*bookmark*/
+  .bookmark br {
     display: block;
   }
 }

@@ -1,6 +1,25 @@
 <% content_for :cover do %>
   <div class="cover">
-    <h1 class="text-center" id="title">簡単作成、みんなでシェアする<br>単語帳アプリ！</h1>
-    <p class="text-center"><%= link_to '登録する', signup_path, class: "btn btn-success btn-lg" %></P>
+    <div class="toppage">
+      
+      
+      
+      <div class="main clearfix">
+        <h1 class="text-center" id="title"><span class="under">簡単作成!　単語帳アプリ</span></h1>
+        
+        <img src="/img/toppage1.png" class="image1">
+        
+        <ul class="">
+          <li class="col-lg-offset-1 col-lg-11"><span class="glyphicon glyphicon-ok"></span>　多言語に対応！</li>
+          <li class="col-lg-offset-1 col-lg-11"><span class="glyphicon glyphicon-ok"></span>　音声読み上げが自動設定！</li>
+          <li class="col-lg-offset-1 col-lg-11"><span class="glyphicon glyphicon-ok"></span>　他ユーザーの単語帳からコピーできる！</li>
+        </ul>
+        
+        <img src="/img/toppage2.png" class="image2">
+      </div>
+      
+      <p class="text-center"><%= link_to '登録する', signup_path, class: "btn btn-success btn-lg" %></P>
+        
+    </div>
   </div>
 <% end %>

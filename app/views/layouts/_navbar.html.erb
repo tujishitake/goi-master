@@ -14,17 +14,23 @@
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
             <li>
-              <%= link_to "ユーザー一覧", users_path %>
+              <%= link_to new_deck_path do %>
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                Deckを追加
+              <% end %>
             </li>
           
             <li>
-              <%= link_to "ブックマーク一覧", flashcards_bookmarks_path %>  
+              <%= link_to flashcards_bookmarks_path do %> 
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                ブックマークリスト
+              <% end %>
             </li>
             
             <li>
-              <%= link_to new_deck_path do %>
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                Deckを追加する
+              <%= link_to decks_path do %>
+                <span class="glyphicon glyphicon-search"></span>
+                他ユーザーのDeckをさがす
               <% end %>
             </li>
             
