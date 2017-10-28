@@ -92,6 +92,7 @@ class DecksController < ApplicationController
   end
   
   def select_data
+<<<<<<< HEAD
     @select_data = [ 
       # :English, :Japanese, :French, :Spanish, :Portuguese, :Italian, :German, :Chinese, :Korean,
       ["English(US)", :EnglishUS], 
@@ -124,6 +125,13 @@ class DecksController < ApplicationController
       ["Swedish", :Swedish], 
       ["Thai", :Thai], 
       ["Turkish", :Turkish], 
+=======
+    @select_data = [ :English, :Japanese, :French, :Spanish, :Portuguese, :Italian, :German, :Chinese, :Korean,
+      # ["英語", :English], 
+      # ["日本語", :Japanese], 
+      # ["フランス語", :French], 
+      # ["スペイン語", :Spanish]
+>>>>>>> 6eaa702d2d3c5c48ce48ba349f90550ffb400413
     ]
   end
   

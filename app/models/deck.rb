@@ -10,6 +10,7 @@ class Deck < ApplicationRecord
   
   accepts_nested_attributes_for :flashcards, allow_destroy: true
   
+<<<<<<< HEAD
   # enum text1_language: { English: 0, Japanese: 1, French: 2, Spanish: 3, Portuguese: 4, Italian: 5, German: 6, Chinese: 7, Korean: 8 }, _prefix: true
   # enum text2_language: { English: 0, Japanese: 1, French: 2, Spanish: 3, Portuguese: 4, Italian: 5, German: 6, Chinese: 7, Korean: 8 }, _prefix: true  
   enum text1_language: { EnglishUS: 0, EnglishUK: 1, Arabic: 2, Chinese: 3, Czech: 4, Danish: 5, Dutch: 6, Finnish: 7, FrenchFR: 8, FrenchCA: 9, 
@@ -20,11 +21,18 @@ class Deck < ApplicationRecord
                           German: 10, Greek: 11, Hindi: 12, Japanese: 13, Hungarian: 14, Indonesian: 15, Italian: 16, Korean: 17, Norwegian: 18, Polish: 19,
                           PortuguesePT: 20, PortugueseBR: 21, Romanian: 22, Russian: 23, Slovakian: 24, SpanishES: 25, SpanishUS: 26, Swedish: 27,
                           Thai: 28, Turkish: 29}, _prefix: true
+=======
+  enum text1_language: { English: 0, Japanese: 1, French: 2, Spanish: 3, Portuguese: 4, Italian: 5, German: 6, Chinese: 7, Korean: 8 }, _prefix: true
+  enum text2_language: { English: 0, Japanese: 1, French: 2, Spanish: 3, Portuguese: 4, Italian: 5, German: 6, Chinese: 7, Korean: 8 }, _prefix: true  
+  # enum text1_language: { EnglishUS: 0, EnglishUK: 1, Japanese: 2, French: 3, Spanish: 4, Portuguese: 5, Italian: 6, German: 7, Chinese: 8, Korean: 9 }, _prefix: true
+  # enum text2_language: { EnglishUS: 0, EnglishUK: 1, Japanese: 2, French: 3, Spanish: 4, Portuguese: 5, Italian: 6, German: 7, Chinese: 8, Korean: 9 }, _prefix: true
+>>>>>>> 6eaa702d2d3c5c48ce48ba349f90550ffb400413
   
   def text1_language_for_uttr
     case text1_language
     when "EnglishUS"
       'en-US'
+<<<<<<< HEAD
     when "EnglishUK"
       'en-GB'
     when "Arabic"
@@ -49,6 +57,10 @@ class Deck < ApplicationRecord
       'el-GR'
     when "Hindi"
       'hi-IN'
+=======
+    # when "EnglishUK"
+    #   'en-GB'
+>>>>>>> 6eaa702d2d3c5c48ce48ba349f90550ffb400413
     when "Japanese"
       'ja-JP'
     when "Hungarian"
@@ -75,6 +87,7 @@ class Deck < ApplicationRecord
       'sk-SK'
     when "SpanishES"
       'es-ES'
+<<<<<<< HEAD
     when "SpanishUS"
       'es-US'
     when "Swedish"
@@ -83,6 +96,22 @@ class Deck < ApplicationRecord
       'th-TH'
     when "Turkish"
       'tr-TR'
+=======
+    # when "SpanishUS"
+    #   'es-US'
+    when "Portuguese"
+      'pt-PT'
+    # when "PortugueseBR"
+    #   'pt-BR'
+    when "Italian"
+      'it-IT'
+    when "German"
+      'de-DE'
+    when "Chinese"
+      'zh-CN'
+    when "Korean"
+      'ko-KR'
+>>>>>>> 6eaa702d2d3c5c48ce48ba349f90550ffb400413
     end
     
     # case
@@ -95,6 +124,7 @@ class Deck < ApplicationRecord
     case text2_language
     when "EnglishUS"
       'en-US'
+<<<<<<< HEAD
     when "EnglishUK"
       'en-GB'
     when "Arabic"
@@ -119,6 +149,10 @@ class Deck < ApplicationRecord
       'el-GR'
     when "Hindi"
       'hi-IN'
+=======
+    # when "EnglishUK"
+    #   'en-GB'
+>>>>>>> 6eaa702d2d3c5c48ce48ba349f90550ffb400413
     when "Japanese"
       'ja-JP'
     when "Hungarian"
@@ -145,6 +179,7 @@ class Deck < ApplicationRecord
       'sk-SK'
     when "SpanishES"
       'es-ES'
+<<<<<<< HEAD
     when "SpanishUS"
       'es-US'
     when "Swedish"
@@ -153,6 +188,22 @@ class Deck < ApplicationRecord
       'th-TH'
     when "Turkish"
       'tr-TR'
+=======
+    # when "SpanishUS"
+    #   'es-US'
+    when "Portuguese"
+      'pt-PT'
+    # when "PortugueseBR"
+    #   'pt-BR'
+    when "Italien"
+      'it-IT'
+    when "German"
+      'de-DE'
+    when "Chinese"
+      'zh-CN'
+    when "Korean"
+      'ko-KR'
+>>>>>>> 6eaa702d2d3c5c48ce48ba349f90550ffb400413
     end
   end
 end
