@@ -9,9 +9,17 @@ class Flashcard < ApplicationRecord
   validates :text1, presence: true, length: { maximum: 255 }
   validates :text2, presence: true, length: { maximum: 255 }
   
-  def photo
-    photo = flickr.photos.search(text: text1, sort: "relevance", per_page: 1).first
-    getFlickrImageURL(photo, "q")
+  def photos
+    # photo = flickr.photos.search(text: text1, sort: "relevance", per_page: 1).first
+    # getFlickrImageURL(photo, "q")
+    
+    photos = flickr.photos.search(text: text1, sort: "relevance", per_page: 10)
+    images = []
+    photos.each do |photo|
+      image = getFlickrImageURL(photo, "q")
+      images.push(image)
+    end
+    return images
   end
   
   def getFlickrImageURL(photo, size) 

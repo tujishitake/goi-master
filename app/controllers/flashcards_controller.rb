@@ -29,7 +29,8 @@ class FlashcardsController < ApplicationController
   
   def get_image
     @flashcard = Flashcard.find(params[:id])
-    image_url = @flashcard.photo
+    image_url = params[:flashcard][:image]
+    # p "#{image_url}＠＠＠出力テスト＠＠＠"
     
     # ready filepath
     file_name = File.basename(image_url)

@@ -22,7 +22,22 @@
                 <%= link_to '削除', delete_image_flashcard_path(flashcard), method: :delete, data: { confirm: '本当に削除しても良いですか？' }, class: 'btn btn-danger btn-xs' %>
               <% else %>
                 <!--<img src="<%#= flashcard.photo %>" width= 150, height= 150>-->
-                <%= link_to '画像を取得する', get_image_flashcard_path(flashcard), method: :post, class: 'btn btn-success' %>
+                <%#= link_to '画像を取得する', get_image_flashcard_path(flashcard), method: :post, class: 'btn btn-success' %>
+                <button class='btn btn-success get_images' >画像を取得する</button>
+                
+                <!--modal-->
+                <div class="open_modal modal">
+                  <% flashcard.photos.each do |image| %>
+                    <%= form_for flashcard, :url=> get_image_flashcard_path(flashcard), method: :post do |f| %>
+                      <%= f.hidden_field :image, :value => image %>
+                      
+                      <%= image_submit_tag (image) %>
+                      
+                    <% end %>  
+                  <% end %>
+                </div>
+                
+                
               <% end %>
             <% else %>
               <% if flashcard.image %>
@@ -37,7 +52,13 @@
           </td>
           <% end %>
         </tr>
+        <tr>
+          <!--<div id="push_images"></div>-->
+        </tr>
       </table>
+      
     <% end %>
   </div>
 </div>
+
+<div id="modal-overlay"></div>
