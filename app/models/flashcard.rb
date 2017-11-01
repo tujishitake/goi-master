@@ -13,7 +13,7 @@ class Flashcard < ApplicationRecord
     # photo = flickr.photos.search(text: text1, sort: "relevance", per_page: 1).first
     # getFlickrImageURL(photo, "q")
     
-    photos = flickr.photos.search(text: text1, sort: "relevance", per_page: 10)
+    photos = flickr.photos.search(text: text1, sort: "relevance", per_page: 12)
     images = []
     photos.each do |photo|
       image = getFlickrImageURL(photo, "q")

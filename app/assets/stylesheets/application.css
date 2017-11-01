@@ -142,12 +142,16 @@ button {
 	z-index:2;
 	position: fixed;
 	overflow: scroll;
-	top: 15%;
+	top: 5%;
 	/*left: 25%;*/
 }
-/*.push_images form {*/
 .modal form {
   display: inline-block;
+  margin-left: 8px;
+}
+form .image {
+  width: 180px;
+  height: 180px;
 }
 #modal-overlay{
 	z-index:1;
@@ -158,6 +162,12 @@ button {
 	width:100%;
 	height:120%;
 	background-color:rgba(0,0,0,0.75);
+}
+
+@media (max-width: 1024px) {
+ .open_modal {
+    width: 90%; 
+  }
 }
 
 @media (max-width: 991px) {
@@ -183,6 +193,13 @@ button {
   .toppage .image2 {
     margin-left: 0;
     margin-right: 40px;
+  }
+  .open_modal {
+    width: 90%; 
+  }
+  form .image {
+    width: 150px;
+    height: 150px;
   }
 }
 
@@ -270,5 +287,14 @@ button {
   /*bookmark*/
   .bookmark br {
     display: block;
+  }
+  
+  /*modal*/
+  .modal form {
+    margin-left: 3px;
+  }
+  form .image {
+    width: 90px;
+    height: 90px;
   }
 }

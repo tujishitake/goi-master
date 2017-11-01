@@ -10,22 +10,35 @@ $(document).on('turbolinks:load', function() {
     console.log(uttr.lang);
   }
   $(".text").on("click", speak);
-});
-
-
-
-$(function() {
-
+  
+  
   $(".get_images").on("click", function() {
     //[$modal-overlay]をフェードインさせる
     $("#modal-overlay").fadeIn("slow");
     $(this).siblings(".open_modal").fadeIn("slow");
   });
   
-  $("#modal-overlay, .open_modal").on("click", function(){
+  $("#modal-overlay").on("click", function(){
   	//[#modal-overlay]と[#modal-close]をフェードアウトする
     $(".open_modal").fadeOut("slow");
     $("#modal-overlay").fadeOut("slow");
   });
-    
 });
+
+
+
+// $(function() {
+
+//   $(".get_images").on("click", function() {
+//     //[$modal-overlay]をフェードインさせる
+//     $("#modal-overlay").fadeIn("slow");
+//     $(this).siblings(".open_modal").fadeIn("slow");
+//   });
+  
+//   $("#modal-overlay").on("click", function(){
+//   	//[#modal-overlay]と[#modal-close]をフェードアウトする
+//     $(".open_modal").fadeOut("slow");
+//     $("#modal-overlay").fadeOut("slow");
+//   });
+    
+// });
