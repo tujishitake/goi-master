@@ -153,6 +153,9 @@ form .image {
   width: 180px;
   height: 180px;
 }
+.result {
+  margin-top: 20px;
+}
 #modal-overlay{
 	z-index:1;
 	display:none;
@@ -166,7 +169,7 @@ form .image {
 
 @media (max-width: 1024px) {
  .open_modal {
-    width: 90%; 
+    width: 80%; 
   }
 }
 
@@ -293,8 +296,42 @@ form .image {
   .modal form {
     margin-left: 3px;
   }
+  .modal form .btn.search {
+    font-size: 18px;
+  }
   form .image {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
+    margin-left: 3px;
+  }
+}
+
+@media (max-width: 375px) {
+  .modal{
+    width: 100%; 
+  }
+  form .image {
+    width: 100px;
+    height: 100px;
+    margin-left: 3px;
+  }
+}
+
+@media (max-width: 360px) {
+  form .image {
+    width: 95px;
+    height: 95px;
+    margin-left: 3px;
+  }
+}
+
+@media (max-width: 320px) {
+  form .image {
+    width: 130px;
+    height: 130px;
+    margin-left: 3px;
+  }
+  .modal form .btn.search {
+    width: 100%;
   }
 }

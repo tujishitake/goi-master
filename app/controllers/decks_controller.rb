@@ -10,6 +10,24 @@ class DecksController < ApplicationController
   def show
     @deck = Deck.find(params[:id])
     @flashcards = @deck.flashcards.order('created_at ASC')
+    
+    @images = []
+    
+    @text = params[:text]
+    flash_id = params[:flashcard]
+    @flashcard = Flashcard.find_by(id: flash_id)
+    # p @flashcard
+    # p "#{flash_id}＠＠＠＠＠flashcardテスト＠＠＠＠＠"
+    # p "#{@text}＠＠＠＠テスト＠＠＠＠"
+    if @text
+      results = flickr.photos.search(text: @text, sort: "relevance", per_page: 12)
+      
+      results.each do |result|
+        image = getFlickrImageURL(result, "q")
+        @images << image
+      end
+    end
+    p "#{@images}＠＠＠＠テスト＠＠＠＠"
   end
   
   def new
@@ -125,6 +143,16 @@ class DecksController < ApplicationController
       ["Thai", :Thai], 
       ["Turkish", :Turkish], 
     ]
+  end
+  
+  def getFlickrImageURL(photo, size) 
+    # photoオブジェクトから画像のURLを作成して返す
+    url = "https://farm" + photo.farm.to_s + ".staticflickr.com/" + photo.server.to_s + "/" + photo.id.to_s + "_" + photo.secret.to_s
+    if (size)   # サイズ指定ありの場合
+      url += "_" + size.to_s
+    end
+    url += ".jpg"
+    return url
   end
   
 end

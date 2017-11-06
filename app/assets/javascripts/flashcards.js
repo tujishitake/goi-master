@@ -24,21 +24,3 @@ $(document).on('turbolinks:load', function() {
     $("#modal-overlay").fadeOut("slow");
   });
 });
-
-
-
-// $(function() {
-
-//   $(".get_images").on("click", function() {
-//     //[$modal-overlay]をフェードインさせる
-//     $("#modal-overlay").fadeIn("slow");
-//     $(this).siblings(".open_modal").fadeIn("slow");
-//   });
-  
-//   $("#modal-overlay").on("click", function(){
-//   	//[#modal-overlay]と[#modal-close]をフェードアウトする
-//     $(".open_modal").fadeOut("slow");
-//     $("#modal-overlay").fadeOut("slow");
-//   });
-    
-// });

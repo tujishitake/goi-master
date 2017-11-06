@@ -24,7 +24,6 @@ Rails.application.routes.draw do
       member do
         post 'get_image', to: 'flashcards#get_image'
         delete 'delete_image', to: 'flashcards#delete_image'
-        get 'find_image', to: 'flashcards#find_image'
       end
   end
 end

@@ -1,0 +1,10 @@
+<% if @images %>
+                  
+  <% @images.each do |image| %>
+    <%= form_for flashcard, :url=> get_image_flashcard_path(flashcard), method: :post do |f| %>
+      <%= f.hidden_field :image, :value => image %>
+      <%= image_submit_tag (image), class: "image" %>
+    <% end %>  
+  <% end %>
+  
+<% end %>

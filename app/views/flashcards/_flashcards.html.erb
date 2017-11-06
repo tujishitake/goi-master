@@ -27,15 +27,15 @@
                 
                 <!--modal-->
                 <div class="open_modal modal">
-    
-                  <% flashcard.photos.each do |image| %>
-                    <%= form_for flashcard, :url=> get_image_flashcard_path(flashcard), method: :post do |f| %>
-                      <%= f.hidden_field :image, :value => image %>
-                      <%= image_submit_tag (image), class: "image" %>
-                    <% end %>  
+                  <%= form_tag({action: :show, id: deck.id}, method: :get, remote: :true, class: 'form-inline') do %>
+                    <div class="form-group">
+                      <%= hidden_field_tag :flashcard, flashcard.id %>
+                      <%= text_field_tag :text, @text, value: flashcard.text1, class: 'form-control input-lg', placeholder: "キーワードを入力", size: 40 %>
+                    </div>
+                    <%= submit_tag '画像を検索', class: 'btn btn-success btn-lg search' %>
                   <% end %>
+                  <div class="result"></div>
                 </div>
-                
                 
               <% end %>
             <% else %>
